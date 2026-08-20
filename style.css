@@ -27,7 +27,10 @@ html {
 }
 
 body {
-  background-color: var(--bg-wash);
+  background-color: #e8f2e8;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3C!-- leaf 1: top-left, upright --%3E%3Cellipse cx='30' cy='28' rx='7' ry='14' fill='%2356885020' transform='rotate(-15,30,28)'/%3E%3Cline x1='30' y1='14' x2='30' y2='42' stroke='%2356885035' stroke-width='0.8'/%3E%3C!-- leaf 2: top-right, tilted --%3E%3Cellipse cx='155' cy='18' rx='6' ry='12' fill='%233a6e2e25' transform='rotate(40,155,18)'/%3E%3Cline x1='155' y1='6' x2='155' y2='30' stroke='%233a6e2e40' stroke-width='0.7' transform='rotate(40,155,18)'/%3E%3C!-- leaf 3: mid-left, horizontal --%3E%3Cellipse cx='18' cy='100' rx='5' ry='11' fill='%2368a05828' transform='rotate(75,18,100)'/%3E%3Cline x1='18' y1='89' x2='18' y2='111' stroke='%2368a05840' stroke-width='0.7' transform='rotate(75,18,100)'/%3E%3C!-- leaf 4: center, large --%3E%3Cellipse cx='105' cy='95' rx='9' ry='18' fill='%2345783818' transform='rotate(-30,105,95)'/%3E%3Cline x1='105' y1='77' x2='105' y2='113' stroke='%2345783830' stroke-width='1' transform='rotate(-30,105,95)'/%3E%3C!-- leaf 5: bottom-left --%3E%3Cellipse cx='45' cy='165' rx='6' ry='13' fill='%232d5a2720' transform='rotate(20,45,165)'/%3E%3Cline x1='45' y1='152' x2='45' y2='178' stroke='%232d5a2735' stroke-width='0.8' transform='rotate(20,45,165)'/%3E%3C!-- leaf 6: bottom-right, small --%3E%3Cellipse cx='172' cy='158' rx='4' ry='9' fill='%2356885022' transform='rotate(-50,172,158)'/%3E%3Cline x1='172' y1='149' x2='172' y2='167' stroke='%2356885038' stroke-width='0.6' transform='rotate(-50,172,158)'/%3E%3C!-- leaf 7: mid-right --%3E%3Cellipse cx='185' cy='88' rx='5' ry='11' fill='%233a6e2e20' transform='rotate(10,185,88)'/%3E%3Cline x1='185' y1='77' x2='185' y2='99' stroke='%233a6e2e35' stroke-width='0.7' transform='rotate(10,185,88)'/%3E%3C!-- leaf 8: bottom-center --%3E%3Cellipse cx='95' cy='180' rx='5' ry='10' fill='%2368a05820' transform='rotate(-65,95,180)'/%3E%3Cline x1='95' y1='170' x2='95' y2='190' stroke='%2368a05835' stroke-width='0.6' transform='rotate(-65,95,180)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
   color: var(--text-color);
   line-height: 1.6;
 }
