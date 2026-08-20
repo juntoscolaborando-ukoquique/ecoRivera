@@ -28,4 +28,9 @@ Una vez habilitado GitHub Pages, actualizar en el `<head>` de `index.html`:
 La imagen actual es Valle del Lunarejo (Wikimedia Commons, CC BY-SA). Cuando se consiga una foto propia del espacio en Corrales, subirla al repo y actualizar la referencia en `style.css`.
 
 ### 5. Mantener la sección de convocatoria actualizada
-La sección 3 de `index.html` describe la licencia de noviembre de 2026. Cuando esa fecha pase, actualizar con la próxima convocatoria o convertirla en un historial de actividades.
+La sección "Convocatoria" de `index.html` describe la licencia de noviembre de 2026. Cuando esa fecha pase, actualizar con la próxima convocatoria o convertirla en un historial de actividades.
+
+### 6. Agregar foto de perfil real en la sección "Sobre mí"
+El `<img>` en la sección "Sobre mí" apunta a `foto-perfil.jpg` en el directorio raíz. Si el archivo no existe, la imagen se oculta automáticamente (via `onerror`). Para que aparezca:
+
+**Acción:** Subir una foto propia al repositorio con el nombre `foto-perfil.jpg` y hacer push.
