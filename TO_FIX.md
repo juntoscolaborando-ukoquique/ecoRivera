@@ -14,14 +14,34 @@ El formulario ya usa `fetch` hacia Formspree, pero el endpoint en `main.js` toda
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/TU_ID_REAL';
 ```
 
-### 2. Activar CallMeBot para notificaciones WhatsApp
-El código de `main.js` ya envía una notificación a WhatsApp cuando alguien completa el formulario, pero necesita una API key de CallMeBot (gratuito).
+### 2. Configurar notificación por Telegram cuando llega un mensaje
+CallMeBot ya no funciona sin WhatsApp Business. La alternativa es un bot de Telegram, gratuito y sin requisitos especiales.
 
-**Acción (una sola vez desde tu WhatsApp):**
-1. Agregá el número **+34 644 59 77 23** a tus contactos.
-2. Enviá el mensaje exacto: `I allow callmebot to send me messages`
-3. Recibirás tu API key por WhatsApp.
-4. Reemplazá `XXXXXXXX` en `main.js` (`CALLMEBOT_API_KEY`) con esa key y hacé push.
+**Pasos (cuando estés listo):**
+
+1. Abrí Telegram y buscá `@BotFather`.
+2. Enviá `/newbot`, seguí las instrucciones y guardá el **token** que te da (formato `123456789:AAF...`).
+3. Abrí una conversación con tu bot y enviá cualquier mensaje.
+4. Visitá `https://api.telegram.org/bot<TU_TOKEN>/getUpdates` en el navegador y anotá tu **chat_id** (número en el campo `"id"`).
+5. En `main.js`, reemplazá la función `notifyWhatsApp` por esta:
+```js
+const TELEGRAM_TOKEN   = 'TU_TOKEN_AQUI';
+const TELEGRAM_CHAT_ID = 'TU_CHAT_ID_AQUI';
+
+async function notifyTelegram(nombre, contacto) {
+  if (TELEGRAM_TOKEN === 'TU_TOKEN_AQUI') return;
+  const text = encodeURIComponent(
+    '📩 Nuevo mensaje en EcoRivera\nDe: ' + nombre + '\nContacto: ' + contacto
+  );
+  await fetch(
+    'https://api.telegram.org/bot' + TELEGRAM_TOKEN +
+    '/sendMessage?chat_id=' + TELEGRAM_CHAT_ID + '&text=' + text,
+    { mode: 'no-cors' }
+  ).catch(() => {});
+}
+```
+6. En el bloque de envío exitoso del formulario, cambiá `notifyWhatsApp(...)` por `notifyTelegram(...)`.
+7. Hacé push.
 
 ### 3. Agregar perfil de Instagram real
 El link de Instagram en el footer apunta al placeholder `https://instagram.com/tu-perfil`.

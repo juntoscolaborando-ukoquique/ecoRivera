@@ -4,35 +4,7 @@
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/XXXXXXXX'; // reemplazar con tu endpoint real
 
-// CallMeBot: envía notificación a WhatsApp cuando llega un mensaje.
-// Pasos de activación (una sola vez):
-//   1. Agregá el contacto +34 644 59 77 23 en tu WhatsApp.
-//   2. Enviá el mensaje: "I allow callmebot to send me messages"
-//   3. Recibirás tu API key por WhatsApp.
-//   4. Reemplazá CALLMEBOT_API_KEY abajo con esa key.
-// Más info: https://www.callmebot.com/blog/free-api-whatsapp-messages/
-const CALLMEBOT_PHONE   = '59891633183';       // tu número sin + ni espacios
-const CALLMEBOT_API_KEY = 'XXXXXXXX';          // reemplazar con tu API key
-
-async function notifyWhatsApp(nombre, contacto) {
-  if (CALLMEBOT_API_KEY === 'XXXXXXXX') return; // no configurado aún
-  try {
-    const text = encodeURIComponent(
-      '📩 Nuevo mensaje en EcoRivera\n' +
-      'De: ' + nombre + '\n' +
-      'Contacto: ' + contacto
-    );
-    await fetch(
-      'https://api.callmebot.com/whatsapp.php' +
-      '?phone=' + CALLMEBOT_PHONE +
-      '&text=' + text +
-      '&apikey=' + CALLMEBOT_API_KEY,
-      { mode: 'no-cors' }
-    );
-  } catch (_) {
-    // falla silenciosa — la notificación es un extra, no bloquea el flujo
-  }
-}
+// TODO: notificación por Telegram pendiente de configurar — ver TO_FIX.md #2
 
 // ─── Campos dinámicos del formulario ────────────────────────
 
@@ -97,11 +69,6 @@ form.addEventListener('submit', async function(e) {
       formStatus.innerHTML = '<strong>¡Gracias por tu mensaje!</strong> Lo recibí correctamente y me pondré en contacto a la brevedad.';
       form.reset();
       hideAllDynamicFields();
-
-      // Notificar por WhatsApp (no bloquea ni depende del éxito)
-      const nombre   = data.get('nombre')   || '(sin nombre)';
-      const contacto = data.get('whatsapp') || data.get('email') || '(sin contacto)';
-      notifyWhatsApp(nombre, contacto);
 
     } else {
       const json = await response.json();
