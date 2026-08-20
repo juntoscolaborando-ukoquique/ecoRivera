@@ -17,6 +17,9 @@
   <meta property="og:image"       content="https://upload.wikimedia.org/wikipedia/commons/9/9e/Valle_del_Lunarejo.JPG">
   <meta property="og:locale"      content="es_UY">
 
+  <!-- Form endpoint (injected from .env) -->
+  <meta name="form-endpoint" content="https://formcarry.com/s/Lsca6QKw9Ih">
+
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="Nodo Agroecológico Minas de Corrales">
@@ -43,9 +46,7 @@
     <div class="header-bg" role="img" aria-label="Paisaje rural del Valle del Lunarejo, Rivera, Uruguay"></div>
     <h1>Nodo Agroecológico Minas de Corrales</h1>
     <p>Sembrando soberanía alimentaria, medicina natural y vida en comunidad desde el norte de Uruguay.</p>
-    <p class="photo-credit">
-      Foto: <a href="https://commons.wikimedia.org/wiki/File:Valle_del_Lunarejo.JPG" target="_blank" rel="noopener">Valle del Lunarejo</a> — Miriam Edith Leal, CC BY-SA 3.0
-    </p>
+    
   </header>
 
   <div class="container">
@@ -192,12 +193,14 @@
     <!-- ─── Sobre mí ───────────────────────────────────────── -->
     <section id="sobre-mi" class="card">
       <h2>Sobre mí</h2>
-      <img
-        src="images/yo.png"
-        alt="Foto de perfil"
-        class="section-thumb"
-        style="border-radius:50%;width:90px;height:90px;"
-      >
+      <a href="https://www.facebook.com/enrique.corbellini" target="_blank" rel="noopener" aria-label="Perfil de Facebook">
+        <img
+          src="images/yo.png"
+          alt="Foto de perfil"
+          class="section-thumb"
+          style="border-radius:50%;width:90px;height:90px;cursor:pointer;"
+        >
+      </a>
       <p>
         Me mudé desde Montevideo a los alrededores de <strong>Minas de Corrales</strong> buscando tierra, naturaleza y una vida más cercana a lo que consumo. Trabajo en una empresa local en turnos que me dejan días libres semanales, que dedico a la huerta, a explorar el monte nativo y a conectar con otros proyectos de la región.
       </p>
@@ -209,9 +212,6 @@
       </p>
       <p>
         Durante <strong>noviembre de 2026</strong> cuento con <strong>23 días continuos de licencia</strong> que quiero poner al servicio de algún proyecto agroecológico o ecoaldeano: ya sea viajando a colaborar afuera, o recibiendo personas aquí en Corrales (hasta 2 en casa; para grupos más grandes coordino con agroecólogos de la zona). Si tenés una propuesta para esa ventana, escribime.
-      </p>
-      <p>
-        Mi sitio personal: <a href="https://www.facebook.com/enrique.corbellini" target="_blank" rel="noopener">facebook.com/enrique.corbellini</a>
       </p>
     </section>
 
@@ -232,7 +232,7 @@
           Estamos ideando la posibilidad de crear una <strong>nueva ecoaldea</strong> que resuelva necesidades que las ya existentes pueden no estar cubriendo — de escala, de ubicación, de modelo de convivencia o de enfoque productivo. Si esta idea te resuena, ponete en contacto con nosotros.
         </p>
       </div>
-    </section>>
+    </section>
 
     <!-- ─── Formulario ────────────────────────────────────── -->
     <section id="contacto" class="card">
