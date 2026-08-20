@@ -1,0 +1,360 @@
+/* ============================================================
+   Nodo Agroecológico Minas de Corrales — Estilos principales
+   ============================================================ */
+
+:root {
+  --primary: #2d5a27;
+  --primary-light: #48823e;
+  --accent: #d97736;
+  --bg-color: #f4f6f0;
+  --card-bg: #ffffff;
+  --text-color: #2b2d2f;
+  --border-color: #d1dbc8;
+  --nav-height: 56px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+  /* compensate sticky nav when jumping to anchors */
+  scroll-padding-top: calc(var(--nav-height) + 1rem);
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* ─── NAV ─────────────────────────────────────────────────── */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--primary);
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 0.25rem;
+}
+
+nav a {
+  color: #e0ebd9;
+  text-decoration: none;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  transition: background-color 0.15s;
+}
+
+nav a:hover,
+nav a:focus {
+  background-color: rgba(255,255,255,0.15);
+  color: #ffffff;
+  outline: none;
+}
+
+/* ─── HEADER ──────────────────────────────────────────────── */
+
+header {
+  position: relative;
+  background-color: var(--primary);
+  color: white;
+  padding: 4rem 1.5rem 3rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.header-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/9e/Valle_del_Lunarejo.JPG');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.38);
+  z-index: 0;
+}
+
+header > *:not(.header-bg) {
+  position: relative;
+  z-index: 1;
+}
+
+header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+header p {
+  font-size: 1.1rem;
+  color: #e0ebd9;
+  max-width: 700px;
+  margin: 0 auto;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* ─── MAIN CONTAINER ──────────────────────────────────────── */
+
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+/* ─── CARDS ───────────────────────────────────────────────── */
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.card h2 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.card h3 {
+  color: var(--primary-light);
+  margin: 1.2rem 0 0.5rem 0;
+}
+
+ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+.highlight-box {
+  background-color: #eef4eb;
+  border-left: 4px solid var(--primary);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 6px 6px 0;
+}
+
+/* ─── FORM ────────────────────────────────────────────────── */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+label {
+  font-weight: bold;
+  color: var(--primary);
+}
+
+input,
+select,
+textarea {
+  padding: 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--primary-light);
+}
+
+input:invalid:not(:placeholder-shown),
+textarea:invalid:not(:placeholder-shown) {
+  border-color: #c0392b;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.dynamic-field {
+  display: none;
+  background-color: #f9fbf8;
+  padding: 1rem;
+  border: 1px dashed var(--border-color);
+  border-radius: 4px;
+}
+
+.dynamic-field .form-group {
+  margin: 0;
+}
+
+button[type="submit"] {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover {
+  background-color: #c06225;
+}
+
+button[type="submit"]:focus {
+  outline: 3px solid var(--primary-light);
+  outline-offset: 2px;
+}
+
+#form-status {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+  display: none;
+}
+
+.status-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.status-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* ─── FOOTER ──────────────────────────────────────────────── */
+
+footer {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  color: #666;
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border-color);
+  margin-top: 3rem;
+}
+
+footer p {
+  margin-bottom: 0.4rem;
+}
+
+.footer-contact {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0.75rem 0;
+}
+
+.footer-contact a,
+footer a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.footer-contact a:hover,
+footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.footer-links a {
+  color: #888;
+}
+
+/* ─── PHOTO CREDIT ────────────────────────────────────────── */
+
+.photo-credit {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.75rem;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.6);
+  z-index: 1;
+}
+
+.photo-credit a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: underline;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  header p {
+    font-size: 0.95rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .card h2 {
+    font-size: 1.15rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  nav a {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.6rem;
+  }
+
+  .footer-contact {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  header {
+    padding: 2.5rem 1rem 2rem;
+  }
+
+  .container {
+    padding: 0 0.75rem;
+  }
+}
