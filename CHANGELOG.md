@@ -5,6 +5,40 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es/1.1.0/).
 
 ---
 
+## [1.5.0] — 2026-08-20
+
+### Añadido
+- Notificaciones Telegram en tiempo real al recibir un formulario:
+  - Bot `@ecoRivera_bot` creado via BotFather
+  - Cloudflare Worker (`worker/telegram-notify-worker.js`) desplegado como proxy serverless — mantiene el bot token como secret encriptado, nunca expuesto en el browser
+  - `js/telegramNotify.js` hace POST al Worker tras envío exitoso del formulario (fire-and-forget, nunca bloquea ni afecta el mensaje de éxito al visitante)
+  - CORS bloqueado al origen de GitHub Pages (`ALLOWED_ORIGIN`)
+  - Meta tag `telegram-notify-endpoint` en `index.html` apunta al Worker; vacío = notificaciones desactivadas sin tocar código
+
+### Cambiado
+- `TO_FIX.md`: ítem Telegram eliminado (completado), ítems renumerados
+
+---
+
+## [1.4.0] — 2026-08-20
+
+### Añadido
+- Arquitectura JS modular (`js/` + `worker/`), sin bundler ni build step:
+  - `js/config.js` — lee meta tags, única fuente de configuración runtime
+  - `js/dynamicFields.js` — controlador aislado de campos dinámicos del formulario
+  - `js/formcarryApi.js` — único archivo que conoce la forma de respuesta de Formcarry
+  - `js/formStatus.js` — centraliza toda la copia de mensajes y el rendering de estado
+  - `js/telegramNotify.js` — dispara notificación al proxy Worker, nunca toca el token
+  - `js/main.js` — composition root, solo cableado
+  - `worker/telegram-notify-worker.js` — Cloudflare Worker proxy para Telegram
+- Meta tag `telegram-notify-endpoint` en `index.html` (vacío por defecto)
+- `<script type="module">` en `index.html`
+
+### Eliminado
+- `main.js` plano en raíz — reemplazado por `js/main.js`
+
+---
+
 ## [1.3.0] — 2026-08-20
 
 ### Corregido
