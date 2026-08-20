@@ -7,30 +7,33 @@ Todos los problemas críticos e importantes identificados en la versión inicial
 ## Pendientes
 
 ### 1. Conectar endpoint real de Formspree
-El formulario ya usa `fetch` hacia Formspree, pero el endpoint en `main.js` (línea 6) todavía tiene el valor de ejemplo `XXXXXXXX`. Hasta que se reemplace, los mensajes no llegan.
+El formulario ya usa `fetch` hacia Formspree, pero el endpoint en `main.js` todavía tiene el valor de ejemplo `XXXXXXXX`. Hasta que se reemplace, los mensajes no llegan.
 
 **Acción:** Crear cuenta en [formspree.io](https://formspree.io), generar un formulario y pegar el endpoint real en `main.js`:
 ```js
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/TU_ID_REAL';
 ```
 
-### 2. Agregar perfil de Instagram real
+### 2. Activar CallMeBot para notificaciones WhatsApp
+El código de `main.js` ya envía una notificación a WhatsApp cuando alguien completa el formulario, pero necesita una API key de CallMeBot (gratuito).
+
+**Acción (una sola vez desde tu WhatsApp):**
+1. Agregá el número **+34 644 59 77 23** a tus contactos.
+2. Enviá el mensaje exacto: `I allow callmebot to send me messages`
+3. Recibirás tu API key por WhatsApp.
+4. Reemplazá `XXXXXXXX` en `main.js` (`CALLMEBOT_API_KEY`) con esa key y hacé push.
+
+### 3. Agregar perfil de Instagram real
 El link de Instagram en el footer apunta al placeholder `https://instagram.com/tu-perfil`.
 
 **Acción:** Reemplazar con la URL real del perfil, o eliminar el enlace si no hay perfil activo.
 
-### 3. Actualizar `SITE_URL` y `OG_IMAGE_URL` cuando el sitio esté publicado
+### 4. Actualizar `og:url` cuando el sitio esté publicado
 Una vez habilitado GitHub Pages, actualizar en el `<head>` de `index.html`:
 - `og:url` → `https://juntoscolaborando-ukoquique.github.io/ecoRivera/`
-- `og:image` → puede mantenerse la foto de Wikimedia o reemplazarse con una imagen propia
 
-### 4. Reemplazar la imagen de fondo cuando haya una propia
+### 5. Reemplazar la imagen de fondo cuando haya una propia
 La imagen actual es Valle del Lunarejo (Wikimedia Commons, CC BY-SA). Cuando se consiga una foto propia del espacio en Corrales, subirla al repo y actualizar la referencia en `style.css`.
 
-### 5. Mantener la sección de convocatoria actualizada
-La sección "Convocatoria" de `index.html` describe la licencia de noviembre de 2026. Cuando esa fecha pase, actualizar con la próxima convocatoria o convertirla en un historial de actividades.
-
-### 6. Agregar foto de perfil real en la sección "Sobre mí"
-El `<img>` en la sección "Sobre mí" apunta a `foto-perfil.jpg` en el directorio raíz. Si el archivo no existe, la imagen se oculta automáticamente (via `onerror`). Para que aparezca:
-
-**Acción:** Subir una foto propia al repositorio con el nombre `foto-perfil.jpg` y hacer push.
+### 6. Mantener la sección "Nueva Ecoaldea" actualizada
+Cuando el proyecto de ecoaldea avance, actualizar el texto de esa sección con novedades concretas.
