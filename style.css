@@ -135,6 +135,7 @@ header p {
   padding: 2rem;
   margin-bottom: 2rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: relative;
 }
 
 .card h2 {
@@ -312,10 +313,6 @@ footer a:hover {
 }
 
 /* ─── SECTION THUMBNAIL ──────────────────────────────────── */
-
-.card {
-  position: relative;
-}
 
 .section-thumb {
   float: right;
