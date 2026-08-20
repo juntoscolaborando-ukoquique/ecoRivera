@@ -314,6 +314,52 @@ footer a:hover {
   text-decoration: underline;
 }
 
+/* ─── SECTION THUMBNAIL ──────────────────────────────────── */
+
+.card {
+  position: relative;
+}
+
+.section-thumb {
+  float: right;
+  width: 120px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin: 0 0 1rem 1.5rem;
+  border: 1px solid var(--border-color);
+  display: block;
+}
+
+.thumb-credit {
+  float: right;
+  clear: right;
+  font-size: 0.65rem;
+  color: #aaa;
+  text-align: right;
+  margin: -0.85rem 0 1rem 0;
+  width: 120px;
+}
+
+.thumb-credit a {
+  color: #aaa;
+}
+
+/* clearfix so card content clears the float */
+.card::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 480px) {
+  .section-thumb {
+    width: 90px;
+    height: 68px;
+    margin: 0 0 0.75rem 1rem;
+  }
+}
+
 /* ─── ABOUT ME ────────────────────────────────────────────── */
 
 .about-me {
