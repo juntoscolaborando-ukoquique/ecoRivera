@@ -6,8 +6,10 @@
   --primary: #2d5a27;
   --primary-light: #48823e;
   --accent: #d97736;
-  --bg-color: #f4f6f0;
+  --bg-color: #eaf5ec; /* softer, nature-evoking pale green */
   --card-bg: #ffffff;
+  --bg-olive: #e6f3e8;
+  --bg-wash: #f7fbf7;
   --text-color: #2b2d2f;
   --border-color: #d1dbc8;
   --nav-height: 56px;
@@ -27,9 +29,19 @@ html {
 }
 
 body {
-  background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
+  /* Painterly layered background: soft washes + subtle texture */
+  background-color: var(--bg-wash);
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(46,90,39,0.06) 0%, transparent 25%),
+    radial-gradient(circle at 80% 75%, rgba(217,119,54,0.04) 0%, transparent 20%),
+    linear-gradient(135deg, rgba(234,245,236,1) 0%, rgba(226,239,227,1) 50%, rgba(240,248,242,1) 100%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><filter id='t'><feTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23t)' opacity='0.04' fill='%23ffffff'/></svg>");
+  background-blend-mode: overlay, overlay, normal, normal;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover, cover, cover, contain;
 }
 
 /* ─── NAV ─────────────────────────────────────────────────── */
@@ -79,7 +91,8 @@ header {
 .header-bg {
   position: absolute;
   inset: 0;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/9e/Valle_del_Lunarejo.JPG');
+  /* Local header image: use provided Valle del Lunarejo photo */
+  background-image: url('images/Valle_del_Lunarejo.JPG');
   background-size: cover;
   background-position: center;
   filter: brightness(0.38);
@@ -298,22 +311,6 @@ footer a:hover {
   color: #888;
 }
 
-/* ─── PHOTO CREDIT ────────────────────────────────────────── */
-
-.photo-credit {
-  position: absolute;
-  bottom: 0.5rem;
-  right: 0.75rem;
-  font-size: 0.7rem;
-  color: rgba(255,255,255,0.6);
-  z-index: 1;
-}
-
-.photo-credit a {
-  color: rgba(255,255,255,0.6);
-  text-decoration: underline;
-}
-
 /* ─── SECTION THUMBNAIL ──────────────────────────────────── */
 
 .card {
@@ -357,35 +354,6 @@ footer a:hover {
     width: 90px;
     height: 68px;
     margin: 0 0 0.75rem 1rem;
-  }
-}
-
-/* ─── ABOUT ME ────────────────────────────────────────────── */
-
-.about-me {
-  display: flex;
-  gap: 1.5rem;
-  align-items: flex-start;
-}
-
-.profile-photo {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-  border: 3px solid var(--border-color);
-}
-
-@media (max-width: 600px) {
-  .about-me {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .profile-photo {
-    width: 110px;
-    height: 110px;
   }
 }
 

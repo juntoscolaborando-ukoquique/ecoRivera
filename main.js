@@ -2,13 +2,13 @@
    Nodo Agroecológico Minas de Corrales — Lógica principal
    ============================================================ */
 
-// Read the form endpoint from a meta tag injected into the page (set from .env at build/dev time)
-const FORMSPREE_ENDPOINT = (function() {
+// Read the form endpoint from a meta tag set in index.html
+const FORMCARRY_ENDPOINT = (function() {
   try {
     const meta = document.querySelector('meta[name="form-endpoint"]');
     if (meta && meta.content) return meta.content;
   } catch (e) {}
-  return 'https://formspree.io/f/XXXXXXXX'; // fallback placeholder
+  return ''; // no fallback — endpoint must be set via meta tag
 })();
 
 // TODO: notificación por Telegram pendiente de configurar — ver TO_FIX.md #2
@@ -65,7 +65,7 @@ form.addEventListener('submit', async function(e) {
   const data = new FormData(form);
 
   try {
-    const response = await fetch(FORMSPREE_ENDPOINT, {
+    const response = await fetch(FORMCARRY_ENDPOINT, {
       method: 'POST',
       body: data,
       headers: { 'Accept': 'application/json' }

@@ -16,15 +16,13 @@ Primera versión publicada. Refactorización completa del MVP original (`ecoRive
 - `.gitignore` — protege `.env` y archivos de sistema
 - `.env.example` — plantilla documentada de variables de entorno
 - `CHANGELOG.md` — este archivo
-- Navegación sticky con anclas a las 5 secciones (`#presentacion`, `#contexto`, `#convocatoria`, `#participacion`, `#contacto`)
+- Navegación sticky con anclas a las secciones (`#quienes-somos`, `#que-hacemos`, `#la-red`, `#para-visitar`, `#sobre-mi`, `#convocatoria`, `#contacto`)
 - Imagen de fondo en el header: Valle del Lunarejo, Rivera (Wikimedia Commons, CC BY-SA 3.0, Miriam Edith Leal)
-- Crédito fotográfico visible sobre la imagen
 - Meta tags SEO: `<meta name="description">` y `<link rel="canonical">`
 - Meta tags Open Graph completos (título, descripción, imagen, URL, locale)
 - Meta tags Twitter Card (`summary_large_image`)
-- Footer con contacto directo: WhatsApp (+598 91 633 183) y email (ukoquique@gmail.com)
-- Footer con enlace a Facebook (`permaecovida`) y al repositorio en GitHub
-- Formulario conectado a Formspree via `fetch` (async/await) con manejo real de éxito y error
+- Footer con contacto directo: email (ukoquique@gmail.com), Facebook y enlace al repositorio en GitHub
+- Formulario conectado a Formcarry via `fetch` (async/await) con manejo correcto de la forma de respuesta de Formcarry (`json.code`, `json.errors` como objeto por campo)
 - Campos de contacto separados: `<input type="tel">` para WhatsApp y `<input type="email">` para email
 - Validación de formato en campo teléfono (`pattern`)
 - Campos dinámicos del formulario ahora se deshabilitan cuando están ocultos (no se envían datos vacíos)
