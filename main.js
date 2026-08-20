@@ -2,7 +2,14 @@
    Nodo Agroecológico Minas de Corrales — Lógica principal
    ============================================================ */
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/XXXXXXXX'; // reemplazar con tu endpoint real
+// Read the form endpoint from a meta tag injected into the page (set from .env at build/dev time)
+const FORMSPREE_ENDPOINT = (function() {
+  try {
+    const meta = document.querySelector('meta[name="form-endpoint"]');
+    if (meta && meta.content) return meta.content;
+  } catch (e) {}
+  return 'https://formspree.io/f/XXXXXXXX'; // fallback placeholder
+})();
 
 // TODO: notificación por Telegram pendiente de configurar — ver TO_FIX.md #2
 
@@ -42,7 +49,7 @@ perfilSelect.addEventListener('change', function() {
 
 hideAllDynamicFields();
 
-// ─── Envío del formulario via Formspree ──────────────────────
+// ─── Envío del formulario via Formcarry ─────────────────────
 
 const form       = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
@@ -64,19 +71,32 @@ form.addEventListener('submit', async function(e) {
       headers: { 'Accept': 'application/json' }
     });
 
-    if (response.ok) {
+    // Formcarry always returns HTTP 200, with the real outcome in the JSON body.
+    // Success: { code: 200, status: "success" }
+    // Validation error: { code: 422, status: "error", message: "...", errors: { fieldName: { message: "..." } } }
+    const json = await response.json();
+
+    if (json.code === 200 || json.status === 'success') {
       formStatus.className = 'status-success';
       formStatus.innerHTML = '<strong>¡Gracias por tu mensaje!</strong> Lo recibí correctamente y me pondré en contacto a la brevedad.';
       form.reset();
       hideAllDynamicFields();
 
-    } else {
-      const json = await response.json();
-      const errorMsg = (json.errors && json.errors.map(function(err) { return err.message; }).join(', ')) || 'Error desconocido.';
+    } else if (json.code === 422 && json.errors) {
+      // errors is an object keyed by field name: { email: { message: "..." }, ... }
+      const msgs = Object.values(json.errors)
+        .map(function(e) { return e.message; })
+        .join(' ');
       formStatus.className = 'status-error';
-      formStatus.innerHTML = '<strong>No se pudo enviar el mensaje.</strong> ' + errorMsg + ' Intentá nuevamente o escribime por email.';
+      formStatus.innerHTML = '<strong>Error de validación.</strong> ' + (msgs || json.message) + ' Revisá los campos e intentá nuevamente.';
+
+    } else {
+      formStatus.className = 'status-error';
+      formStatus.innerHTML = '<strong>No se pudo enviar el mensaje.</strong> ' + (json.message || 'Error desconocido.') + ' Intentá nuevamente o escribime por email.';
     }
+
   } catch (err) {
+    // Only reaches here on a genuine network failure
     formStatus.className = 'status-error';
     formStatus.innerHTML = '<strong>Sin conexión.</strong> Revisá tu internet e intentá nuevamente, o escribime por email.';
   }
