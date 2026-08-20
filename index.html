@@ -26,6 +26,10 @@
   <meta name="twitter:description" content="Soberanía alimentaria, medicinas naturales y vida en comunidad desde el norte de Uruguay.">
   <meta name="twitter:image"       content="https://upload.wikimedia.org/wikipedia/commons/9/9e/Valle_del_Lunarejo.JPG">
 
+  <!-- Telegram push-notification proxy (optional — see /worker/telegram-notify-worker.js).
+       Leave empty to disable; the form works fine without it. -->
+  <meta name="telegram-notify-endpoint" content="">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -399,6 +403,6 @@
     </div>
   </footer>
 
-  <script src="main.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
