@@ -6,10 +6,8 @@
   --primary: #2d5a27;
   --primary-light: #48823e;
   --accent: #d97736;
-  --bg-color: #eaf5ec; /* softer, nature-evoking pale green */
-  --card-bg: #ffffff;
-  --bg-olive: #e6f3e8;
   --bg-wash: #f7fbf7;
+  --card-bg: #ffffff;
   --text-color: #2b2d2f;
   --border-color: #d1dbc8;
   --nav-height: 56px;
@@ -29,19 +27,9 @@ html {
 }
 
 body {
+  background-color: var(--bg-wash);
   color: var(--text-color);
   line-height: 1.6;
-  /* Painterly layered background: soft washes + subtle texture */
-  background-color: var(--bg-wash);
-  background-image:
-    radial-gradient(circle at 10% 20%, rgba(46,90,39,0.06) 0%, transparent 25%),
-    radial-gradient(circle at 80% 75%, rgba(217,119,54,0.04) 0%, transparent 20%),
-    linear-gradient(135deg, rgba(234,245,236,1) 0%, rgba(226,239,227,1) 50%, rgba(240,248,242,1) 100%),
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><filter id='t'><feTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23t)' opacity='0.04' fill='%23ffffff'/></svg>");
-  background-blend-mode: overlay, overlay, normal, normal;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover, cover, cover, contain;
 }
 
 /* ─── NAV ─────────────────────────────────────────────────── */
