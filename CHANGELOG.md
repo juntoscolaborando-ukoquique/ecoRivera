@@ -5,6 +5,17 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es/1.1.0/).
 
 ---
 
+## [1.6.0] — 2026-11-10
+
+### Cambiado
+- Texto del sitio reescrito en voz impersonal; la sección "Quiénes somos" pasó a "La zona y su gente" `#la-zona-y-su-gente`, con alias `#quienes-somos` para links ya compartidos)
+- La sección "Una Nueva Ecoaldea" pasó a "Eco Chacra" (menú, título y formulario)
+- Nueva propuesta: compra asociada de una chacra en Minas de Corrales entre 3 y 6 socios; "Futuro integrante" pasó a "Futuro integrante o socio de chacra"
+- Formulario: la opción `integrante` ahora muestra el campo "qué te interesa del proyecto Eco Chacra" en lugar de la pregunta de saberes
+- Corregido: ecoaldeas en "Rocha, Maldonado" (decía Montevideo)
+
+---
+
 ## [1.5.0] — 2026-08-20
 
 ### Añadido

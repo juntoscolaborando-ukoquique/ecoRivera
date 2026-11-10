@@ -13,7 +13,7 @@ const PROFILE_TO_FIELD_ID = {
   visita: 'field-visita',
   licencia: 'field-licencia',
   intercambio: 'field-saberes',
-  integrante: 'field-saberes',
+  integrante: 'field-licencia', // socio de chacra: mismo campo "qué te interesa del proyecto Eco Chacra"
 };
 
 /**
